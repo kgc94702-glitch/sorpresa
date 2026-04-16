@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Una experiencia romántica e interactiva con animaciones, música y momentos sorpresa."
+    />
+    <title>Una sorpresa para ti</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <canvas id="sky" aria-hidden="true"></canvas>
+      <div class="noise" aria-hidden="true"></div>
+      <div class="cursor-glow" aria-hidden="true"></div>
+      <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+
+      <header class="hero">
+        <div class="hero-copy reveal visible">
+          <p class="eyebrow">Experiencia interactiva</p>
+          <h1>Para la mujer que volvió mágico lo cotidiano</h1>
+          <p class="hero-text">
+            Esto no es solo una página: es un pequeño universo diseñado para
+            sorprenderte, hacerte sonreír y recordarte lo increíble que eres.
+          </p>
+
+          <div class="hero-actions">
+            <button class="button button-primary" id="startExperience">
+              Encender la sorpresa
+            </button>
+            <button
+              class="button button-ghost"
+              id="musicToggle"
+              aria-pressed="false"
+            >
+              Activar música
+            </button>
+            <button class="button button-soft" id="loadSong">
+              Cargar nuestra canción
+            </button>
+          </div>
+
+          <p class="helper">
+            Si quieres personalizarla después, podemos cambiar nombres, fotos,
+            mensajes y una canción especial.
+          </p>
+        </div>
+
+        <div class="hero-stage reveal visible" aria-hidden="true">
+          <div class="halo halo-large"></div>
+          <div class="halo halo-medium"></div>
+          <div class="halo halo-small"></div>
+          <div class="crystal crystal-left"></div>
+          <div class="crystal crystal-right"></div>
+          <div class="hero-card">
+            <span class="hero-card-label">Solo toca y descubre</span>
+            <strong>Tu sorpresa comienza aquí</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="experience hidden" id="experience">
+        <section class="panel reveal constellation-panel" id="constellation">
+          <div class="panel-copy">
+            <p class="eyebrow">Primera escena</p>
+            <h2>Nuestra constelación</h2>
+            <p>
+              Mueve el cursor o toca la pantalla. Las estrellas reaccionan para
+              recordarte que, incluso en la inmensidad, hay conexiones que se
+              sienten inevitables.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span>Latido principal</span>
+              <strong>Tu sonrisa</strong>
+              <p>La clase de detalle que cambia por completo un día entero.</p>
+            </article>
+            <article class="stat-card">
+              <span>Efecto inmediato</span>
+              <strong>Calma + emoción</strong>
+              <p>Como si el mundo bajara el ruido solo para verte mejor.</p>
+            </article>
+            <article class="stat-card">
+              <span>Resultado final</span>
+              <strong>Magia constante</strong>
+              <p>
+                Porque contigo hasta lo sencillo se siente extraordinario.
+              </p>
+            </article>
+          </div>
+
+          <button class="button button-primary pulse-button" id="launchStars">
+            Llenar el cielo de destellos
+          </button>
+        </section>
+
+        <section class="panel reveal letter-panel" id="letterSection">
+          <div class="panel-copy">
+            <p class="eyebrow">Segunda escena</p>
+            <h2>Una carta que late</h2>
+            <p>
+              Haz clic en el sobre. La carta se abre con un mensaje escrito como
+              si el momento estuviera ocurriendo justo ahora.
+            </p>
+          </div>
+
+          <div class="letter-stage">
+            <button class="envelope" id="envelope" aria-expanded="false">
+              <span class="envelope-seal">Abrir</span>
+              <span class="envelope-front"></span>
+              <span class="envelope-letter">
+                <span class="letter-content" id="typedLetter"></span>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section class="panel reveal memories-panel" id="memories">
+          <div class="panel-copy">
+            <p class="eyebrow">Tercera escena</p>
+            <h2>Momentos que se sienten eternos</h2>
+            <p>
+              Cada tarjeta guarda una forma distinta de decir lo importante que
+              eres para mí.
+            </p>
+          </div>
+
+          <div class="memory-layout">
+            <div class="memory-track" id="memoryTrack" role="tablist">
+              <button class="memory-card active" data-memory="0" role="tab">
+                <span>01</span>
+                <strong>Tu mirada</strong>
+              </button>
+              <button class="memory-card" data-memory="1" role="tab">
+                <span>02</span>
+                <strong>Tu voz</strong>
+              </button>
+              <button class="memory-card" data-memory="2" role="tab">
+                <span>03</span>
+                <strong>Tu energía</strong>
+              </button>
+              <button class="memory-card" data-memory="3" role="tab">
+                <span>04</span>
+                <strong>Tu manera de querer</strong>
+              </button>
+            </div>
+
+            <article class="memory-display" id="memoryDisplay">
+              <p class="memory-number">01</p>
+              <h3>Tu mirada</h3>
+              <p>
+                Tiene esa mezcla de ternura y fuerza capaz de detener el tiempo
+                por un segundo y volverlo inolvidable.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel reveal wish-panel" id="wishPanel">
+          <div class="panel-copy">
+            <p class="eyebrow">Cuarta escena</p>
+            <h2>Elige una emoción y deja que explote</h2>
+            <p>
+              Cada botón activa una atmósfera distinta con frases, colores y una
+              lluvia especial de partículas.
+            </p>
+          </div>
+
+          <div class="wish-grid">
+            <button class="wish-button" data-theme="aurora">
+              Quiero abrazarte
+            </button>
+            <button class="wish-button" data-theme="sunset">
+              Quiero bailar contigo
+            </button>
+            <button class="wish-button" data-theme="starlight">
+              Quiero besarte
+            </button>
+          </div>
+
+          <div class="wish-output" id="wishOutput">
+            Toca un botón y deja que el momento cambie de forma.
+          </div>
+        </section>
+
+        <section class="panel reveal finale-panel" id="finale">
+          <div class="panel-copy">
+            <p class="eyebrow">Gran final</p>
+            <h2>Hay personas que no llegan a la vida: la iluminan</h2>
+            <p class="final-line" id="finalTypewriter"></p>
+          </div>
+
+          <button class="button button-primary" id="finalBurst">
+            Abrir el final espectacular
+          </button>
+        </section>
+      </main>
+
+      <div class="moment-overlay" id="momentOverlay" aria-hidden="true">
+        <div class="moment-card">
+          <p class="eyebrow" id="overlayEyebrow">Momento activado</p>
+          <h3 id="overlayTitle">Eres mi lugar favorito</h3>
+          <p id="overlayText">
+            Porque incluso en el ruido del mundo, contigo todo encuentra ritmo.
+          </p>
+          <button class="button button-ghost" id="closeOverlay">
+            Seguir explorando
+          </button>
+        </div>
+      </div>
+
+      <audio id="uploadedSong" loop></audio>
+      <input type="file" id="songUpload" accept="audio/*" hidden />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
